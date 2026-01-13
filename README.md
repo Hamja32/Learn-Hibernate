@@ -1,3 +1,4 @@
 # Learn-Hibernate
 
 Day01_Hibernate_Intro/
+Day02_Hibernate_Practical_Insert_data_into_table/
