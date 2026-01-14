@@ -1,7 +1,3 @@
-Bilkul, GitHub ke liye ek structured `README.md` file bohot zaroori hai. Ye raha Day 3 ke liye `README.md` content jo "Step-by-Step" format mein hai.
-
-Aap apne **Day 3** wale folder mein ek `README.md` file banayein aur ye code paste kar dein:
-
 ````markdown
 # Day 3: Fetching Data using HQL (Hibernate Query Language)
 
@@ -116,3 +112,4 @@ Student [id=2, name=Amit, marks=85]
 ```
 
 ```
+
