@@ -1,0 +1,31 @@
+object getting from db using hibernate
+
+1. session.get(-,-)		- depricated
+=> it performs the eager loading of the object
+
+eager loading : whether you use the object or not , get method will load the object. This is eager loading
+
+2. session.load(-,-)
+=> it can perform both eager or lazy loading of the object at once
+by default - lazy loading
+
+lazy loading : when you're using the object it will load 
+
+=> All single row operations in hibernate takes place by taking identity value as critaria value
+=> if you want to perform row operations in bulk you should go for HQL,NativeSQL, Critaria API
+
+Imp : Dynamic select queries for session.load() and session.get() is not generated, also delete queries are not generated dynamically. They are pregenerated queries.
+
+#working with session.load() method
+--> default :  lazy loading
+
+if lazy='true' (attribute) is used then it performs lazy loading
+else it performs eager loading
+
+Note : internally it uses proxy design pattern
+2. load() method
+load() method is used to retrieve an object from the database by its identifier (primary key). It is used to initialize a proxy object instead of a fully-initialized object, so it can be used to lazily load the object when it is needed.
+load() method does not retrieve the object from the database when it is called. Instead, it returns a proxy object that represents the object. The actual object is only retrieved from the database when it is needed, such as when a method of the object is called or a property is accessed. This technique is known as "lazy loading" and it is used to improve the performance of Hibernate by avoiding unnecessary database queries.
+load() method throws ObjectNotFoundException if there is no object found in the database
+
+

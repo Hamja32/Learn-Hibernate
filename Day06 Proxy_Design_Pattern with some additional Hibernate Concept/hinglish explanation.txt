@@ -1,0 +1,65 @@
+aaj mene session ke .save() and .persist() method me difference smjha jisme mujhe pta chla ki .save() method hibernate ka hai and ye jb bhi execute hota hai to INTEGER wrapper class ke object ko return krta hai jese ki agr koi student save hua db me to uski primary key ya id ko return krega - jbki .persist method ko use krne ke liye hibernate ko jpa se ye method lena pdta hai and abhi agr currently bat kre to .persist() method he use hota hai because .save() method depricated ho chuka hai.
+
+Note : ek or bat ye dono method query ko execute nhi krta blki iske liye to Transaction ka object query ko execute krta hai ye to sirf data ko temporarily store krta hai for storing or executing operation
+and query ko run to transaction.commit() krwata hai
+
+What is Dialect in hibernate ?
+SQL Dialect ya Dialect esa component hai jo responsible hota hai query(static or dynamic)ko generate krwane ke liye
+
+Proxy Design Pattern kya hota hai ?
+
+
+package : java.lang.Class - ek class hai jiska name he "Class" hai 
+-> There has no public constructor.
+to iska mtlb ham new keyword ki madad se object nhi bna skte 
+Class c = new Class() - wrong way to make object
+so there is multiple way to create Class ke object ko bnane ke liye
+
+---isse pehle ye smjho---
+Ways to create object of java.lang.Class
+
+1- Class.forName(--);
+  example : Class c1 = Class.forName("java.util.Date");
+
+2- By using getClass() method of java.lang.Object
+  String s = new String("hii");
+  Class s = s.getClass();
+
+3- By using `class` property: 
+ Class c1  = System.class
+
+
+
+Proxy Design Pattern
+===================
+Designs patterns are best practices to solve the re-occurrence problem of your application
+Proxy : proxy means dummy that looks like real. Proxy internally usese real if required.
+
+#use cases
+- On normal days flipcart has no offers on purchasing any products
+  but, on sale days flipcart has amazing offers on purchasing any products.
+
+#components of proxy design patterns
+1- Component interface
+2- Component concrete class 
+3- proxy class - - implements component interface and has component concrete class ka object
+4- Factory class - factory class will give the object of either proxy class or real class
+
+Proxy design example : 
+
+ | -> src
+	--> com.hamza.component
+	    . FlipcartService.java (i)
+	    . FlipcartServiceImpl.java
+
+	--> com.hamza.proxy
+	    . FlipcartServiceProxy(c)
+
+	--> com.hamza.factory
+	    . EcommerceFactory.java
+
+	--> com.hamza.test
+	    . ProxyDPTest.java
+
+basically mene iska source code ka link niche upload kr diya hai to waha se checkout kr skteho 
+to ye basically ek project hai jisme proxy design follow hua hai basically iska poora overview ye hai ki normally ek interface bnaya gya hai FlipcartService.java and isme ek method bnaya buyNow() jo ki 2 classes implement kregi or wo isliye kuki agr user ke pass cupon hua to use discount mile nhi to normally price calculate ho jaye haan to first class hai FlipcartServiceImpl.java and second hai  FlipcartServiceProxy.java. ek or bat iske logic ke liye hamne ek class bnayi jiska name hia EcommerceFactory.java or isi me business logic hai  next and hamari main class  ProxyDPTest.java ye hai isme hm cupon variable ko initilize krege ya hame pta chalega ki user ke pass cupon hai ya nhi agr hai to konsa fir uske accoring ham bill calculate krenge ok.
