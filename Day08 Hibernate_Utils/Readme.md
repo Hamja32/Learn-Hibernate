@@ -72,22 +72,3 @@ public static void main(String[] args) {
 }
 
 ```
-
-## 🚀 How to Run
-
-1. Clone the repository.
-2. Ensure your `hibernate.cfg.xml` is configured with your MySQL credentials.
-3. Run `App.java`.
-4. Check your database; the `Customer` data should be inserted successfully!
-
----
-
-*Learning Hibernate one step at a time!* 👨‍💻
-
-```
-
-### Tips for your Post:
-* **Screenshot:** Take a screenshot of your Eclipse/IntelliJ code (specifically the `HibernateUtils` class) and attach it to the LinkedIn post. Visuals get more engagement!
-* **Tagging:** If you are following a specific tutorial or roadmap, you can tag the creator/channel.
-
-```
