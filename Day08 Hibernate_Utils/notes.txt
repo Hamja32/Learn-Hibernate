@@ -1,0 +1,109 @@
+hibernate Util (Helper)
+=====================
+1. Utility classes are helper classes that are required in the multiple parts of the project reducing boilerplate code.
+
+------------------------------------------------------------------------------------
+Q Why we need to write  Hibernate Util class ?
+------------------------------------------------------------------------------------
+Ans : Instead of the writing the logics to create configuration class object, SessionFactory object and Session object in every client app.
+or in every DAO Class object, we should write the logic to create these objects in a single class, that is known as utility class.
+
+#In Hibernate Util Class :-
+
+=> We take 1 SessionFactory and 1 Configuration class object based on per database software in the entire application
+
+(inside static block)
+
+==> We take 1 Session object as per 1 each persistence or related persistence operation.
+
+(inside static method)
+
+
+Logic to close SessionFactory obj and Session Object -> seperate static method.
+
+---------------------------------------------------------------------------------------------------------
+HibernateUtil.java
+--------------------------------------------------------------------------------------------------------
+package com.HibernateUtility.utilities;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.HibernateUtility.entity.Customer;
+
+public class HibernateUtils {
+	private static SessionFactory factory;
+	
+	static {
+		Configuration cfg = null;
+		try {
+			cfg = new Configuration();
+			cfg.configure().addAnnotatedClass(Customer.class);
+			factory = cfg.buildSessionFactory();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static Session getSession() {
+		if(factory != null) {
+			return factory.openSession();
+		}else {
+			return null;
+		}
+	}
+	
+	public static void closeSession(Session s) {
+		if(s != null) {
+			s.close();
+		}
+	}
+	
+	public static void closeSessionFactory() {
+		if(factory != null) {
+			factory.close();
+		}
+	}
+	
+	
+}
+
+-------------------------------------------------------------------------------
+App.java
+--------------------------------------------------------------------------------
+package com.HibernateUtility;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.HibernateUtility.entity.Customer;
+import com.HibernateUtility.utilities.HibernateUtils;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Customer ram = new Customer();
+    	ram.setCustomer_name("Ravi Kumar");
+    	ram.setGender("Male");
+    	ram.setMobile_number("5555555");
+    	
+    	Session session = HibernateUtils.getSession();
+    	Transaction tx = session.beginTransaction();
+    	
+    	try {
+    		session.persist(ram);
+    		tx.commit();
+    		System.out.println("Data inserted into db..");
+    		
+    	}catch (Exception e) {
+    		tx.rollback();
+			e.printStackTrace();
+			System.out.println("Insertion operation failed");
+		}finally {
+			HibernateUtils.closeSession(session);
+			HibernateUtils.closeSessionFactory();
+		}
+    	
+    }
+}
