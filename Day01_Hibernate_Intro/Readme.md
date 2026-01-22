@@ -14,7 +14,7 @@ It maps Java Objects to Database Tables.
 
 ### 2. Hibernate Framework
 
-Hibernate is an ORM tool that implements JPA. It allows us to save objects directly using methods like `save()`.
+Hibernate is an ORM tool that implements JPA. It allows us to save objects directly using methods like `persist()`.
 
 ### 3. Configuration Steps
 
@@ -32,7 +32,8 @@ Student st = new Student();
 st.setId(101);
 st.setName("Rakesh");
 
-session.save(st); // Saves directly to DB!
+session.persist(st); // Saves directly to DB!
 tx.commit();
 session.close();
 ```
+
