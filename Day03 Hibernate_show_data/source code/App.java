@@ -27,6 +27,8 @@ public class App {
 			e.printStackTrace();
 		} finally {
 			session.close();
+			sessionFactory.close();
 		}
 	}
 }
+
