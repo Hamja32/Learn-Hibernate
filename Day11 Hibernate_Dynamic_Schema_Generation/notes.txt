@@ -1,0 +1,38 @@
+dynamic schema generation
+
+[hbm2ddl.auto] property
+
+a) <property name="hbm2ddl.auto">create</property>
+
+=>it will always create new db table based on the hibernate mapping file info supplied
+=>if db table is already existing then it will delete the table and then it will create one new fresh database table
+=> It internally uses schema export tool
+=>if you are developing long running application withou shutdown restart, or once in a very long while there is chance to restart
+the application then it is recommanded to go with 'create' option
+eg - railway ticket booking apps may be vanished every 2,3 years
+
+
+b) <property name="hbm2ddl.auto">update</property>
+
+=>it internally uses SchemaUpdate tool
+=>it creates the db table if the db table is not already available
+=>if db table is already with the matching name of the table attribute of <class> tag in hibernate mapping file then it will not create 
+another table and alters that table
+=>This is the most used property
+
+
+c) a) <property name="hbm2ddl.auto">validate</property>
+
+=>it varifies whether db table is already exist or not according to the mapping file configuration
+=>it will give exception - SchemaManagementException if there is no table or column related to the table as configured in mapping
+file.
+=> As a part of validation/varification it will check the db table,column availability,data type matching column count  etc
+Note : The option does not attempt to create or alter table dynamically
+
+d)  <property name="hbm2ddl.auto">create-drop</property>
+
+=> it internally uses schema export tool 
+=> it creates db table based on mapping file info when sessionFactory object is created
+and also the db table is deleted when sessionFactory is destroyed
+=> This is very useful while testing projects, while giving demo to the project and also in UAT because in these practices we only
+need data to be available temporary
