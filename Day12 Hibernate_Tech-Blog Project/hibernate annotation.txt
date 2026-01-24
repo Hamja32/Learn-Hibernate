@@ -1,0 +1,56 @@
+We can develop hibernate apps in two ways
+
+ i) by using xml driven configuration
+ => in xml driven configuration, both the hibernate configuratin and mapping configuration are given by xml files 
+Example : we were giving hibernate.cfg.xml file for hibernate configuration 
+and entityName.hbm.xml file for the hibernate mapping file.
+
+ ii) by using annotation driven configuration
+=> In annotation driven configuration , we only replace the hibernate. we only replace the hibernate mapping file (entityName.hbm.xml) file with the annotated entity class. mean we will apply annotation in the entity class and hence we do not  need to create seperate mapping xml file.
+
+Q1 - Why hibernate cfg (xml file) is not replaced with annotations ?
+
+Ans 1 => Hibernate configuration file containes very important properties for the hibernate like db_username,db_password,jdbc_driver_class,dialect etc, these properties may be changed frequently as required . So maintaining this frequent changes with annotations are bit difficult and long time taking thing, that's why hibernate cfg file is not replaced with annotations.
+
+
+Q2 - Why only hibernate mapping file is replaced with annotations ?
+
+Ans 2 => When schema in db is created, the db settings like - schema name,db_name,table_name,col_name etc these properties may no longer to require to change that's why they have given the way to replace hibernate mapping file with annotation.
+
+
+
+# While applying annotations please make sure that you're using it in the below given order as priority
+
+
+i) JPA Mapping Annotation (given by jpa specification) [e.g. @Table, @Column, @Id etc]
+
+ii) Hibernate Supplied Annotation
+[e.g. @Filter, @FilterDef and etc]
+
+
+iii) Java Config Given Annotation
+[e.g. @Resource, @PreDestroy, @PostConstruct etc]
+
+iv) Third party supplied annotation
+
+
+
+Basic JPA annotation
+====================
+
+@Entity - It marks the java class as entity/model/persistence class
+
+@Table - it maps the entity  class with with db table
+
+@Id - It marks the entity class property as primary key
+
+@Column - it marks the entity class property with the db table column
+
+
+
+# Some more Annotation
+=======================
+
+@Type -  To specify the hibernate data type
+@Transient - it does not participate in any persistence operation we can even say ; It makes the certainer
+property not to involve in any persistence operation
