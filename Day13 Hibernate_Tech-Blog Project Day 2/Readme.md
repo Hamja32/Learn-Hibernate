@@ -1,10 +1,8 @@
-### 1. LinkedIn Post (Copy & Paste) 🚀
+### Day 13 Hibernate Tech-Blog Project Day 2
 
-**Headline:** Leveling up my Java Full Stack Project: DAO Pattern & Dynamic UI! 💻🎨
+**Leveling up my Java Full Stack Project: DAO Pattern & Dynamic UI! 💻🎨** 
 
 **Body:**
-Day 2 of building **TechBlog** from scratch! 🚀
-
 Today was a productive session. I moved beyond just listing blogs and implemented the **Single Post View** functionality. Now, clicking "Read More" dynamically fetches the specific blog content from the database using its ID.
 
 **👨‍💻 Technical Updates:**
@@ -125,3 +123,4 @@ _Computer Science Student_
 ```
 
 ```
+
