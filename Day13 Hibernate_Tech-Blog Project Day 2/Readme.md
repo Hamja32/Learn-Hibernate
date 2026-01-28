@@ -1,6 +1,6 @@
 ### Day 13 Hibernate Tech-Blog Project Day 2
 
-**Leveling up my Java Full Stack Project: DAO Pattern & Dynamic UI! 💻🎨** 
+**Leveling up my Java Full Stack Project: DAO Pattern & Dynamic UI!** 
 
 **Body:**
 Today was a productive session. I moved beyond just listing blogs and implemented the **Single Post View** functionality. Now, clicking "Read More" dynamically fetches the specific blog content from the database using its ID.
@@ -123,4 +123,5 @@ _Computer Science Student_
 ```
 
 ```
+
 
