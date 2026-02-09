@@ -234,8 +234,6 @@ This project helped me understand that:
 - Hibernate relationships simplify complex queries
 - Clean architecture matters more than features
 
----
-
 ## 👤 Author
 
 **Hamza Khan**
@@ -243,3 +241,4 @@ Java & Web Developer
 🔗 LinkedIn: [https://www.linkedin.com/in/hamja-khan-982621265/]
 
 ---
+
